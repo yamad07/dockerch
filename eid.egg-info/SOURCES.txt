@@ -1,0 +1,17 @@
+README.md
+setup.py
+eid/__init__.py
+eid/core.py
+eid.egg-info/PKG-INFO
+eid.egg-info/SOURCES.txt
+eid.egg-info/dependency_links.txt
+eid.egg-info/entry_points.txt
+eid.egg-info/top_level.txt
+eid/lib/__init__.py
+eid/lib/utils.py
+eid/lib/command/__init__.py
+eid/lib/command/build.py
+eid/lib/command/console.py
+eid/lib/command/init.py
+eid/lib/command/notebook.py
+eid/lib/command/run.py

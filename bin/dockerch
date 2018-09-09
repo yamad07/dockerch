@@ -1,0 +1,56 @@
+#!/bin/zsh
+
+subcommand="$1"
+arg="$2"
+
+function build(){
+    docker-compose -f dockerch/docker-compose.yml build
+}
+
+function run(){
+    docker-compose -f dockerch/docker-compose.yml run experiment python ${arg}
+}
+
+function console(){
+    docker-compose -f dockerch/docker-compose.yml run experiment python
+}
+
+function invalid(){
+    echo "dockerch: '${subcommand}' is invalid subcommand"
+    echo "see 'dockerch --help'."
+}
+
+function install(){
+    gsed -i -e '$ a '"${arg}"'' dockerch/requirements.txt
+    build
+}
+
+function help(){
+    echo 'usage: dockerch [--help]'
+    echo 'These are dockerch command.'
+    echo '  build      Build docker image'
+    echo '  run        Run script in docker image'
+    echo '  install    Add python library using pip'
+    echo '  console    Start python console'
+}
+
+case $subcommand in
+    build|b)
+        build
+        ;;
+    run|r)
+        run
+        ;;
+    console|c)
+        console
+        ;;
+    install|i)
+        install
+        ;;
+    help|h|--help)
+        help
+        ;;
+    *)
+        invalid
+esac
+

@@ -1,0 +1,3 @@
+[console_scripts]
+eid = eid.core:main
+
