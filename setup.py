@@ -1,5 +1,4 @@
 from setuptools import setup, find_packages
-
 with open('requirements.txt') as requirements_file:
     install_requirements = requirements_file.read().splitlines()
 
@@ -8,7 +7,7 @@ setup(
     version="0.0.1",
     description="machine learning experiment easily in docker container",
     author="yamad07",
-    packages=find_packages(),
+    packages=['eid', 'eid.lib', 'eid.lib.templates'],
     package_data={
         'eid': ['lib/templates/*']
         },
