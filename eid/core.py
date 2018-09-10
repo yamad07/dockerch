@@ -1,7 +1,7 @@
 import click
 import os
 import shutil
-from .lib import command as command
+from .src import command as command
 
 @click.group('eid command')
 def main():
