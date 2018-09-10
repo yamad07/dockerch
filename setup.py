@@ -10,7 +10,7 @@ setup(
     author="yamad07",
     packages=find_packages(),
     package_data={
-        '': ['Dockerfile', 'docker-compose.yml']
+        'eid': ['lib/templates/*']
         },
     entry_points={
         "console_scripts": [
