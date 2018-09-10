@@ -10,7 +10,9 @@ setup(
     author="yamad07",
     packages=find_packages(),
     package_data={
-        'eid': ['lib/templates/*']
+        packages=['eid'],
+        package_dir={'eid': 'src'},
+        'eid': ['src/templates/*']
         },
     entry_points={
         "console_scripts": [
