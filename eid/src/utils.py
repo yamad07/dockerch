@@ -19,6 +19,7 @@ def remove_gpu_config():
     with open('./docker-compose.yml', 'r') as f:
         data = yaml.load(f)
 
-    with open('./docker-compose.yml', 'w') as f:
-        data['services']['experiment'].pop('runtime')
-        f.write(yaml.dump(data))
+        if 'runtime' in data['services']['experiment']:
+            with open('./docker-compose.yml', 'w') as f:
+                data['services']['experiment'].pop('runtime')
+                f.write(yaml.dump(data))
