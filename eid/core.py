@@ -2,10 +2,13 @@ import click
 import os
 import shutil
 from .src import command as command
+from .src import utils
 
 @click.group('eid command')
-def main():
-    pass
+@click.option('--use_gpu', default=False, type=bool)
+def main(use_gpu):
+    if use_gpu:
+        utils.write_gpu_config()
 
 @main.command(help='initialize machine learning project')
 @click.argument('dir')
