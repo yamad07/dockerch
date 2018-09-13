@@ -5,10 +5,12 @@ from .src import command as command
 from .src import utils
 
 @click.group('eid command')
-@click.option('--use_gpu', default=False, type=bool)
+@click.option('--use-gpu/--no-use-gpu', default=False)
 def main(use_gpu):
     if use_gpu:
         utils.write_gpu_config()
+    else:
+        utils.remove_gpu_config()
 
 @main.command(help='initialize machine learning project')
 @click.argument('dir')
