@@ -14,6 +14,9 @@ $ eid build
 # run script in docker image
 $ eid run example.py
 
+# run on gpu
+$ eid run --gpu example.py
+
 # if you want to start ipython shell
 $ eid shell
 
