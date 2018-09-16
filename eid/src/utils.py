@@ -23,3 +23,14 @@ def remove_gpu_config():
             with open('./docker-compose.yml', 'w') as f:
                 data['services']['experiment'].pop('runtime')
                 f.write(yaml.dump(data))
+
+def base_command(use_gpu):
+    if use_gpu:
+        return ['docker-compose', '-f', 'docker-compose-gpu.yml']
+    return ['docker-compose']
+
+def run_command(use_gpu):
+    args = base_command(use_gpu)
+    args.append('run')
+
+    return args

@@ -17,32 +17,21 @@ def init(dir):
 
 @main.command(help='run script in docker container')
 @click.argument('filename')
-@click.option('--use-gpu/--no-use-gpu', default=False)
-def run(filename, use_gpu):
-    if use_gpu:
-        utils.write_gpu_config()
-    else:
-        utils.remove_gpu_config()
-    command.run(filename)
+@click.option('--gpu/--cpu', default=False)
+def run(filename, gpu):
+    command.run(filename, gpu)
 
 @main.command(help='ipython shell in docker container')
-@click.option('--use-gpu/--no-use-gpu', default=False)
-def shell(use_gpu):
-    if use_gpu:
-        utils.write_gpu_config()
-    else:
-        utils.remove_gpu_config()
-    command.shell()
+@click.option('--gpu/--cpu', default=False)
+def shell(gpu):
+    command.shell(gpu)
 
 @main.command(help='build docker container')
-def build():
-    command.build()
+@click.option('--gpu/--cpu', default=False)
+def build(gpu):
+    command.build(gpu)
 
 @main.command(help='run notebook in docker container')
-@click.option('--use-gpu/--no-use-gpu', default=False)
-def notebook(use_gpu):
-    if use_gpu:
-        utils.write_gpu_config()
-    else:
-        utils.remove_gpu_config()
-    command.notebook()
+@click.option('--gpu/--cpu', default=False)
+def notebook(gpu):
+    command.notebook(gpu)

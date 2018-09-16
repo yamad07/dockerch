@@ -1,0 +1,10 @@
+version: '2.3'
+services:
+  experiment:
+    runtime: nvidia
+    ports:
+      - '8888:8888'
+    build:
+      context: .
+    volumes:
+      - .:/src
